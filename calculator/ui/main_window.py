@@ -7,8 +7,8 @@ from calculator.ui.input_handler import InputHandler
 KEY_MAP = {"*": "×", "/": "÷", "\r": "=", "\x08": "back", "\x1b": "C"}
 class MainWindow(tk.Tk):
     def __init__(self):
-        self.title("Калькулятор")
         super().__init__()
+        self.title("Калькулятор")
         self.resizable(False, False)
         self.display = Display(self)
         self.display.grid(row=0, column=0, columnspan=4, sticky="nsew", padx=5, pady=5)
@@ -32,7 +32,7 @@ class MainWindow(tk.Tk):
 
 
         self.keys = {key for _, key, *_ in BUTTONS}
-        self.bind("Key", self._on_key)
+        self.bind("<Key>", self._on_key)
 
     def _on_key(self, event):
         key = KEY_MAP.get(event.char, event.char)
