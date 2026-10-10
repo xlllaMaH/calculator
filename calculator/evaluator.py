@@ -26,7 +26,7 @@ def tokenize(expression):
     while pos < len(expression):
         match = TOKEN.match(expression, pos)
         if not match:
-            raise ValueError(f"Недопустимый символ: {expression[pos]}")
+            raise ValueError(f"Недопустимый символ: {expression[pos:].lstrip()[0]}")
         tokens.append(match.group(1))
         pos = match.end()
     return tokens
