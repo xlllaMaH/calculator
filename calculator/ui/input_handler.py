@@ -16,7 +16,7 @@ class InputHandler:
         except (ValueError, ArithmeticError) as error:
             self.expression = ""
             self.just_evaluated = False
-            self.display.set(str(error))
+            self.display.show_error(str(error))
 
     def _handle(self, key):
         if key == "=":
