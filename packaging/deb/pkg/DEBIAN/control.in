@@ -1,0 +1,16 @@
+Package: @NAME@
+Version: @VERSION@
+Section: math
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.9), python3-tk
+Installed-Size: @SIZE@
+Maintainer: @MAINTAINER@
+Description: simple desktop calculator with a Tk interface
+ Desktop calculator written in Python 3 with a Tk graphical interface.
+ .
+ Supports the basic arithmetic operations, power, modulo, square root,
+ sine, cosine, floor and ceiling, memory keys (M+, M-, MR, MC) and input
+ from the keyboard.
+ .
+ Простой настольный калькулятор на Python 3 с графическим интерфейсом Tk.

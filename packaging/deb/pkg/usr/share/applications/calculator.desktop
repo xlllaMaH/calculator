@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Calculator
+Name[ru]=Калькулятор
+Comment=Simple desktop calculator
+Comment[ru]=Простой настольный калькулятор
+Exec=calculator
+Icon=calculator
+Terminal=false
+Categories=Utility;Calculator;
+Keywords=calculator;math;калькулятор;
