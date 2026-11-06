@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+case "$1" in
+    remove|upgrade|deconfigure)
+        if command -v py3clean >/dev/null 2>&1; then
+            py3clean -p calculator
+        else
+            find /usr/lib/python3/dist-packages/calculator -name '*.py[co]' -delete 2>/dev/null || true
+            find /usr/lib/python3/dist-packages/calculator -type d -name __pycache__ -empty -delete 2>/dev/null || true
+        fi
+        ;;
+    failed-upgrade) ;;
+    *) echo "prerm called with unknown argument '$1'" >&2; exit 1 ;;
+esac
+exit 0

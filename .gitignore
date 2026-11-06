@@ -5,3 +5,7 @@ __pycache__/
 .vscode/
 
 .pytest_cache/
+packaging/deb/build/
+packaging/deb/dist/
+packaging/deb/repo/
+packaging/deb/.gnupg/
