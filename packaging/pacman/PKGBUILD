@@ -1,0 +1,41 @@
+pkgname=calculator
+pkgver=1.0
+pkgrel=1
+pkgdesc="Простой графический калькулятор на Python/Tkinter (Simple GUI calculator)"
+arch=('any')
+url="https://example.org/calculator"
+license=('custom')
+depends=('python' 'tk')
+_pyver=$(python -c 'import sys; print(f"python{sys.version_info.major}.{sys.version_info.minor}")')
+source=("${pkgname}-${pkgver}.tar.gz"
+        "${pkgname}.desktop"
+        "${pkgname}.svg")
+sha256sums=('SKIP'
+            '0e8af8ebf53527f9239680e64d825ce3fe84c5efe6c335ed4caaf7234fb74baf'
+            'a98d5d4e8ba4dededb5560f28222fd2341c6e3ae89baa55adefc026527c0e391')
+
+# Лицензия
+
+package() {
+    cd "${srcdir}/${pkgname}-${pkgver}"
+
+    # Python-пакет приложения
+    install -d "${pkgdir}/usr/lib/${_pyver}/site-packages/${pkgname}"
+    cp -r "${pkgname}" "${pkgdir}/usr/lib/${_pyver}/site-packages/"
+    find "${pkgdir}/usr/lib/${_pyver}/site-packages/${pkgname}" \
+        -type d -name '__pycache__' -exec rm -rf {} +
+
+    # Лаунчер
+    install -d "${pkgdir}/usr/bin"
+    cat > "${pkgdir}/usr/bin/${pkgname}" <<'EOF'
+#!/bin/sh
+exec python -m calculator.main "$@"
+EOF
+    chmod 755 "${pkgdir}/usr/bin/${pkgname}"
+
+    # .desktop-файл и иконка для меню приложений
+    install -Dm644 "${srcdir}/${pkgname}.desktop" \
+        "${pkgdir}/usr/share/applications/${pkgname}.desktop"
+    install -Dm644 "${srcdir}/${pkgname}.svg" \
+        "${pkgdir}/usr/share/icons/hicolor/scalable/apps/${pkgname}.svg"
+}

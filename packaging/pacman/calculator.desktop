@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Calculator
+Name[ru]=Калькулятор
+Comment=Simple GUI calculator written in Python/Tkinter
+Comment[ru]=Простой графический калькулятор на Python/Tkinter
+Exec=calculator
+Icon=calculator
+Terminal=false
+Categories=Utility;Calculator;
+Keywords=calculator;math;
+StartupNotify=true

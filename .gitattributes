@@ -1,3 +1,4 @@
 *.sh text eol=lf
 packaging/deb/pkg/DEBIAN/* text eol=lf
 packaging/deb/pkg/usr/bin/* text eol=lf
+packaging/pacman/PKGBUILD text eol=lf

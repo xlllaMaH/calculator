@@ -9,3 +9,8 @@ packaging/deb/build/
 packaging/deb/dist/
 packaging/deb/repo/
 packaging/deb/.gnupg/
+
+# pacman (makepkg)
+packaging/pacman/src/
+packaging/pacman/pkg/
+*.pkg.tar.zst
