@@ -14,3 +14,6 @@ packaging/deb/.gnupg/
 packaging/pacman/src/
 packaging/pacman/pkg/
 *.pkg.tar.zst
+
+# Windows setup (NSIS)
+packaging/win-setup/*.exe
